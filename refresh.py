@@ -26,11 +26,11 @@ def scroll():
 FILE_LOC = "contact.xlsx"
 URL = 'https://web.whatsapp.com/'
 WAITER_ELEMENT = "landing-title _3-XoE"
-NEW_CHAT = '//*[@id="side"]/header/div[2]/div/span/div[2]/div/span'
-BACK_BUTTON_NEW_CHAT = '//*[@id="app"]/div[1]/div[1]/div[2]/div[1]/span/div[1]/span/div[1]/header/div/div[1]/button'
-PROFILE_IMAGE = '//*[@id="side"]/header/div[1]/div/img'
-THREE_DOTS = '//*[@id="side"]/header/div[2]/div/span/div[3]/div/span'
-LOGOUT_BUTTON = '//*[@id="side"]/header/div[2]/div/span/div[3]/span/div[1]/ul/li[4]/div[1]'
+NEW_CHAT = '//*[@id="app"]/div/div/div[3]/header/div[2]/div/span/div[2]/div/span'
+BACK_BUTTON_NEW_CHAT = '//*[@id="app"]/div/div/div[2]/div[1]/span/div/span/div/header/div/div[1]/button/span'
+PROFILE_IMAGE = '//*[@id="app"]/div/div/div[2]/div[1]/span/div/span/div/div[2]/div[2]/div/div/div[5]/div/div/div[1]/div/div/img'
+THREE_DOTS = '//*[@id="app"]/div/div/div[3]/header/div[2]/div/span/div[3]/div/span'
+LOGOUT_BUTTON = '//*[@id="app"]/div/div/div[3]/header/div[2]/div/span/div[3]/span/div/ul/li[4]/div[1]'
 
 def login():
     global driver
@@ -58,14 +58,16 @@ def login():
     
 def refresh_contact_list():
     driver.find_element_by_xpath(NEW_CHAT).click()
+    sleep(0.6)
     pyautogui.press('tab')
+    sleep(0.6)
     pyautogui.press('down')
     pyautogui.press('down')
     pyautogui.press('down')
 
     mycon=set()
     while(True):
-        contacts = driver.find_elements_by_class_name('_3q9s6')
+        contacts = driver.find_elements_by_class_name('_3OvU8')
         newcon=set([j.text for j in contacts])
         if len(newcon|mycon)==len(mycon):
             break
