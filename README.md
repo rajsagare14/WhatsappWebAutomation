@@ -30,3 +30,4 @@ Just run the main file with the command ```python main.py``` while in the same d
 ## Maintainers
 * [rajsagare14](https://github.com/rajsagare14)
 * [ZeroKun265](https://github.com/ZeroKun265)
+* [sarapapa-sp](https://github.com/sarapapa-sp)
